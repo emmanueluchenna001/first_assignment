@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: hsl(20, 50%, 98%);
+    width: 100%;
+
+}
+.container{
+    padding: 50px;
+
+}
+.desserts{
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+.general{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+
+}
+.waffle{
+    position: relative;
+}
+.img{
+    width: 300px;
+    border-radius: 10px;
+}
+.waffle.cart{
+    width: 150px;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 265px;
+    left: 85px;
+    background-color: white;
+    border-radius: 50px;
+}
+.waffle2{
+    margin-top: 30px;
+}
+.waffle2 p:first-child{
+    color: gray;
+    font-size: small;
+}
+.waffle2 p{
+    line-height: 23px;
+}
+.waffle2 p:nth-child(2){
+    font-weight: 600;
+}
+.waffle2 p:nth-child(3){
+    color: red;
+}
