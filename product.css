@@ -1,42 +1,46 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     background-color: hsl(23, 51%, 91%);
     width: 100%;
-
 }
-.container{
+
+.container {
     padding: 50px;
     background-color: hsl(13, 31%, 94%);
     display: flex;
     justify-content: space-between;
     position: relative;
-
 }
-.desserts{
+
+.desserts {
     margin-bottom: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
 }
-.general{
-    /* background-color: hsl(7, 20%, 60%); */
+
+.general {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 75%;
     gap: 50px;
 }
-.waffle{
+
+.waffle {
     position: relative;
 }
-.img{
+
+.img {
     width: 300px;
     border-radius: 10px;
 }
-.wafle.cart{
+
+.wafle.cart {
     width: 150px;
     text-align: center;
     padding: 10px;
@@ -46,108 +50,308 @@ body{
     background-color: white;
     border-radius: 50px;
 }
-.waffle2{
+
+.waffle2 {
     margin-top: 30px;
 }
-.waffle2 p:first-child{
+
+.waffle2 p:first-child {
     color: gray;
     font-size: small;
 }
-.waffle2 p{
+
+.waffle2 p {
     line-height: 23px;
 }
-.waffle2 p:nth-child(2){
+
+.waffle2 p:nth-child(2) {
     font-weight: 600;
 }
-.waffle2 p:nth-child(3){
+
+.waffle2 p:nth-child(3) {
     color: rgb(255, 77, 0);
 }
-.general2{
+
+.general2 {
     background-color: hsl(20, 50%, 98%);
     width: 300px;
     height: 500px;
-    /* border: 1px solid black; */
     padding: 10px;
     position: sticky;
     top: 20px;
-    /* position: relative; */
-    /* right: end; */
 }
-.addtoCart{
+
+.addtoCart {
     background: transparent;
     border: none;
 }
-.quantityBox{
+
+.quantityBox {
     display: none;
     justify-content: space-around;
 }
-.minus, .plus{
-    /* display: none; */
+
+.minus,
+.plus {
     background: transparent;
     border: none;
     font-size: larger;
     cursor: pointer;
 }
-#confirm{
+
+#proceed {
     padding: 10px;
     background-color: red;
     border: none;
     border-radius: 8px;
     position: absolute;
     bottom: 10px;
-    /* justify-content: center; */
     left: 100px;
-    
-    
+    cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-h2{
-    /* color: rgb(255, 77, 0); */
-}
-.hop{
-    /* color: rgb(255, 77, 0); */
-}
-.first{
-    /* display: flex;
-    gap: 10px; */
-}
-.cart{
-    /* margin: 20px; */
-}
-button{
-    /* width: 200px; */
-    /* height: 40px; */
-    /* margin-left: 40px; */
-    /* margin-top: 50px; */
-    /* background-color: rgb(255, 77, 0); */
-    /* color: white; */
-    /* border-radius: 20px; */
-}
-.order{
-    /* display: flex; */
-    /* gap: 200px; */
-    /* margin-top: 40px; */
+#proceed:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
+.cartItemRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5d9d0;
+    font-size: 14px;
+}
+
+.cartItemName {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.cartItemMeta {
+    color: gray;
+    font-size: 13px;
+}
+
+.cartItemQty {
+    color: rgb(255, 77, 0);
+    font-weight: 600;
+}
+
+.cartItemLineTotal {
+    color: #333;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+.removeItem {
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    color: gray;
+    font-size: 11px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.emptyCart {
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.modalOverlay.active {
+    display: flex;
+}
+
+.modalBox {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 400px;
+    max-width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modalBox > img {
+    width: 48px;
+    margin-bottom: 20px;
+}
+
+.modalBox h1 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 6px;
+}
+
+.modalBox > p {
+    color: gray;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.modalItemRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modalItemImg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.modalItemInfo {
+    flex: 1;
+}
+
+.modalItemName {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.modalItemMeta {
+    font-size: 13px;
+    color: gray;
+}
+
+.modalItemMeta .modalItemQty {
+    color: rgb(255, 77, 0);
+    font-weight: 600;
+}
+
+.modalItemLineTotal {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.modalTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#startNewOrder {
+    width: 100%;
+    background-color: rgb(255, 77, 0);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#startNewOrder:hover {
+    background-color: rgb(220, 65, 0);
+}
+
+@media screen and (max-width:1024px) {
+    .container {
+        padding: 30px;
+    }
+
+    .general {
+        grid-template-columns: repeat(2, 1fr);
+        width: 65%;
+    }
+
+    .general2 {
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .general {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .general2 {
+        width: 100%;
+        position: static;
+        height: auto;
+        min-height: 150px;
+        margin-top: 30px;
+    }
+
+    .img {
+        max-width: 100%;
+    }
+
+    #proceed {
+        position: static;
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .general {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .wafle.cart {
+        width: 130px;
+        top: auto;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px;
+    }
+
+    .general2 {
+        padding: 15px;
+    }
+
+    .modalBox {
+        width: 100%;
+        padding: 20px;
+    }
+}
